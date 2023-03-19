@@ -683,9 +683,13 @@ function createContractInstance(web3) {
   return contract;
 }
 
-async function updateTotalSupply(contract, userAddress) {
-  const totalSupply = await contract.methods.totalSupply().call({ from: userAddress });
-  document.getElementById('totalSupply').textContent = `Total Supply: ${totalSupply} / ${maxVikings}`;
+function updateTotalSupply(callback) {
+    contract.methods.totalSupply().call().then((result) => {
+        document.getElementById("supply").innerText = result + " / 10000";
+        callback && callback(result);
+    }).catch((error) => {
+        console.error("Error in updateTotalSupply:", error);
+    });
 }
 
 async function updatePrice(contract, userAddress) {
@@ -715,7 +719,7 @@ async function onConnectClick() {
   const web3 = new Web3(window.ethereum); // Använd window.ethereum istället för window.web3.currentProvider
   const contract = createContractInstance(web3);
 
-  await updateTotalSupply(contract, userAddress);
+  await updateTotalSupply(callback);
   await updatePrice(contract, userAddress);
 
   document.getElementById('connectButton').textContent = 'CONNECTED';
