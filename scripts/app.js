@@ -47,11 +47,11 @@ async function main() {
 	});
   }
   
-  async function updatePrice(contract, userAddress) {
-	const priceInWei = await contract.methods.publicPrice().call({ from: userAddress });
-	const priceInEth = web3.utils.fromWei(priceInWei, 'ether');
-	document.getElementById('price').textContent = `Price: ${priceInEth} ETH`;
-  }
+  async function updatePrice(web3, contract, userAddress) {
+  const priceInWei = await contract.methods.publicPrice().call({ from: userAddress });
+  const priceInEth = web3.utils.fromWei(priceInWei, 'ether');
+  document.getElementById('price').textContent = `Price: ${priceInEth} ETH`;
+}
   
   async function mintNFT(contract, userAddress, mintAmount) {
 	const price = await contract.methods.publicPrice().call({ from: userAddress });
@@ -83,7 +83,7 @@ async function main() {
 	  // Callback-funktionen kommer att köras när updateTotalSupply är klar.
 	});
   
-	await updatePrice(contract, userAddress);
+	await updatePrice(web3, contract, userAddress);
   
 	document.getElementById('connectButton').textContent = 'CONNECTED';
 	document.getElementById('connectButton').disabled = true;
