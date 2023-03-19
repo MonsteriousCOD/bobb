@@ -85,7 +85,7 @@ async function main() {
   
 	await changeNetwork();
   
-	const { web3, contract } = await _setupWeb3ConnectionMint(CONTRACT_ADDRESS, contractABI);
+	const { web3, contract } = await _setupWeb3ConnectionMint(contractAdress, contractABI);
   
 	updateTotalSupply(contract, () => {
 	  // Callback-funktionen kommer att köras när updateTotalSupply är klar.
