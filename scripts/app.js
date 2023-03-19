@@ -679,11 +679,12 @@ const CONTRACT_ADDRESS = '0xc5Fdf5aBCdD7E9f9275f46a4ACB27865C83B7B67';
 const maxVikings = 10000;
 
 function createContractInstance(web3) {
-  const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-  return contract;
-}
+	const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
+	return contractInstance;
+  }
+  
 
-function updateTotalSupply(contract, callback) {
+function updateTotalSupply(callback) {
     contract.methods.totalSupply().call().then((result) => {
         document.getElementById("supply").innerText = result + " / 10000";
         callback && callback(result);
