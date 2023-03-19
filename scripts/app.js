@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
   }
-  const CONTRACT_ABI = [[
+  const CONTRACT_ABI = [
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -674,7 +674,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-]];
+];
 const CONTRACT_ADDRESS = '0x70018F054C52548C93e1c2253841ed98276A1ef0';
 const maxVikings = 10000;
 
