@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
   }
+  const CONTRACT_ADDRESS = '0xfEC732A3FC01D5dBbe28B296963B8eFaf21E9B8b';
   const CONTRACT_ABI = [[
 	{
 		"inputs": [],
@@ -675,11 +676,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 		"type": "function"
 	}
 ]];
-const CONTRACT_ADDRESS = '0xfEC732A3FC01D5dBbe28B296963B8eFaf21E9B8b';
+
 const maxVikings = 10000;
 
 function createContractInstance(web3) {
-	const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
+	const contractInstance = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
 	return contractInstance;
   }
   
