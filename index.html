@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/sprites/Logo.png">
+  <!--font awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Compiled and minified CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!--Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!--custom styles-->
+  <link href="styles/style.css" rel="stylesheet">
+  <title>The Gainlings - Mint</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <header>
+    <nav class="navbar">
+      <div class="nav-wrapper">
+        <image class="main-banner" src="assets/sprites/Header.png" alt="logo"> </image>
+        <div class="socialButton-container">
+          <div class="socialContainerInner solo">
+            <a href="https://twitter.com/the Gainlings" class="socialButton twitter" target="_blank"> </a>
+            <a href="https://opensea.com/ Gainlings" class="socialButton opensea inactive" target="_blank"> </a>
+            <a href="https://the- Gainlings.gitbook.io/the- Gainlings" class="socialButton gitbook" target="_blank"> </a>
+            <a href="https://discord.gg/3v6TTkfuY8" class="socialButton discord" target="_blank"> </a>
+          </div>
+        </div>
+        <div class="triplet"></div>
+        <div class="triplet"></div>
+      </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="main-banner-container">
+      <div class="congratsContainer" id="congratsContainer">
+        <div class="congratsInner" id="congratsInner">
+          <div class="congratsTitle">CONGRATS! MINT SUCCEED!</div>
+          <div class="congratsText1">YOUR ARMY WILL REVEAL IN A MINUTE</div>
+          <div class="congratsText2">CHECKOUT THE</div>
+        </div>
+      </div>
+      <image class="main-banner" src="assets/sprites/Background.png"></image>
+      <!-- Long flag with sideflag container-->
+      <div class="triplet-container topSpaced">
+        <div class="triplet sider">
+          <img class="" src="assets/sprites/FlagThinLongRoyal.png" /></image>
+        </div>
+        <div class="triplet flag">
+          <div class="flagText">
+            <p class="smaller">SEASON I - RULES</p>
+            <div class="distancer10"> </div>
+            <p class="smaller">MAX SUPPLY: 10k</p>
+            <p class="smaller">PRICE: 0.015 ETH</p>
+            <p class="smaller">BOUNTY: 0.012 ETH</p>
+          </div>
+          <div class="distancer180"> </div>
+          <p class="smaller" id="mintStage">Welcome</p>
+          <div class="distancer17"> </div>
+          <p class="connectButton" id="connectButton">CONNECT</p>
+        </div>
+        <div class="triplet sider">
+          <img class="" src="assets/sprites/FlagThinLongRoyal.png" /></image>
+          <p></p>
+        </div>
+      </div>
+      <!-- Mintbutton with torch container-->
+      <div class="triplet-container">
+        <div class="triplet sider torch">
+          <img class="" src="assets/sprites/RedFlame.gif" /></image>
+          <p></p>
+        </div>
+        <div class="triplet mint">
+          <div id="mintBtn" class="mintButton">
+          </div>
+          <div class="distancer10"> </div>
+          <div class="distancer10"> </div>
+          <div class="range">
+            <input class="rangeInput" id="mintSlider" type="range" name="rangeInput" value="1" min="1" max="20">
+          </div>
+          <div class="qty">
+            <span class="rangeValue" id="            <span class="rangeValue" id="rangeValue">1 </span>
+          </div>
+          <div class="rangePricing">
+            <span class="rangePrice" id="rangePrice">0.01 ETH </span>
+          </div>
+          <div class="distancer1"> </div>
+          <div class="distancer1"> </div>
+          <div class="distancer70"> </div>
+          <div class="smallFlex">
+            <p class="smaller title smallText">SUPPLY</p>
+            <p class="smaller stoneVal smallText" id="supply">0 / 10000</p>
+          </div>
+          <div class="distancer17"> </div>
+          <div class="smallFlex">
+            <p class="smaller title smallText">POOL</p>
+            <p class="smaller stoneVal smallText" id="pod">0 ETH</p>
+          </div>
+        </div>
+        <div class="triplet sider torch">
+          <img class="" src="assets/sprites/RedFlame.gif" /></image>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-copyright">
+      <div class="container">
+        <p>&copy;2022 The Gainlings</p>
+      </div>
+    </div>
+  </footer>
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script type="text/javascript" src="./scripts/web3.min.js"></script>
+  <script type="text/javascript" src="./scripts/truffle-contract.js"></script>
+  <script type="text/javascript" src="./scripts/app.js"></script>
+</body>
+
+</html>
+
+
