@@ -33,6 +33,7 @@ async function changeNetwork() {
 
 const CONTRACT_ADDRESS = '0xfEC732A3FC01D5dBbe28B296963B8eFaf21E9B8b';
 const maxVikings = 10000;
+let tokenPrice = 0.01
 
 async function _setupWeb3ConnectionMint(contractAddress, abi) {
   const web3 = new Web3(window.ethereum);
@@ -49,11 +50,10 @@ function updateTotalSupply(contract, callback) {
   });
 }
 
-async function updatePrice(web3, contract, userAddress) {
-  const priceInWei = await contract.methods.publicPrice().call({ from: userAddress });
-  const priceInEth = web3.utils.fromWei(priceInWei, 'ether');
-  document.getElementById('rangeValue').textContent = `Price: ${priceInEth} ETH`;
-}
+let mintSlider = document.getElementById('mintSlider');
+    mintSlider.addEventListener('input', function (e) {
+      document.getElementById('rangePrice').innerText = ((Math.round(mintSlider.value * tokenPrice * 10000) / 10000).toString() + " ETH");
+      document.getElementById('rangeValue').innerText = (mintSlider.value).toString();
 
 async function mintNFT(contract, userAddress, mintAmount) {
   const price = await contract.methods.publicPrice().call({ from: userAddress });
@@ -79,12 +79,12 @@ async function onConnectClick() {
     // Callback-funktionen kommer att köras när updateTotalSupply är klar.
   });
 
-  await updatePrice(web3, contract, userAddress);
-
+  
   document.getElementById('connectButton').textContent = 'CONNECTED';
   document.getElementById('connectButton').disabled = true;
 
   document.getElementById('mintBtn').addEventListener('click', async () => {
+  document.getElementById('mintSlider').to = (5 - userMints);
     const mintAmount = parseInt(document.getElementById('rangeValue').textContent);
     await mintNFT(contract, userAddress, mintAmount);
   });
