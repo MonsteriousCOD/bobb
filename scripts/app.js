@@ -1,9 +1,14 @@
-window.addEventListener('DOMContentLoaded', async () => {
-    if (typeof window.ethereum === 'undefined') {
-      alert('Please install MetaMask to use this dApp.');
-      return;
-    }
-  });
+async function main() {
+	if (typeof window.ethereum === 'undefined') {
+	  alert('Please install MetaMask to use this dApp.');
+	  return;
+	}
+  
+	document.getElementById('connectButton').addEventListener('click', onConnectClick);
+  }
+  
+  window.addEventListener('DOMContentLoaded', main);
+  
   
   async function connectToMetamask() {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -26,10 +31,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
     }
   }
-  
-const CONTRACT_ADDRESS = '0xfEC732A3FC01D5dBbe28B296963B8eFaf21E9B8b';
- 
-const maxVikings = 10000;
+  const CONTRACT_ADDRESS = '0xfEC732A3FC01D5dBbe28B296963B8eFaf21E9B8b';
+  const maxVikings = 10000;
 
 function createContractInstance(web3) {
 	const contractInstance = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
@@ -88,11 +91,6 @@ async function onConnectClick() {
     });
   }
 
-window.addEventListener('DOMContentLoaded', async () => {
-  if (typeof window.ethereum === 'undefined') {
-    alert('Please install MetaMask to use this dApp.');
-    return;
-  }
+
 
   document.getElementById('connectButton').addEventListener('click', onConnectClick);
-});
