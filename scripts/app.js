@@ -675,7 +675,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 		"type": "function"
 	}
 ];
-const CONTRACT_ADDRESS = '0x70018F054C52548C93e1c2253841ed98276A1ef0';
+const CONTRACT_ADDRESS = '0xc5Fdf5aBCdD7E9f9275f46a4ACB27865C83B7B67';
 const maxVikings = 10000;
 
 function createContractInstance(web3) {
