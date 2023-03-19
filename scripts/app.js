@@ -711,25 +711,28 @@ async function mintNFT(contract, userAddress, mintAmount) {
 }
 
 async function onConnectClick() {
-  const userAddress = await connectToMetamask();
-  if (!userAddress) return;
-
-  await changeNetwork();
-
-  const web3 = new Web3(window.ethereum); // Använd window.ethereum istället för window.web3.currentProvider
-  const contract = createContractInstance(web3);
-
-  await updateTotalSupply(callback);
-  await updatePrice(contract, userAddress);
-
-  document.getElementById('connectButton').textContent = 'CONNECTED';
-  document.getElementById('connectButton').disabled = true;
-
-  document.getElementById('mintBtn').addEventListener('click', async () => {
-    const mintAmount = parseInt(document.getElementById('rangeValue').textContent);
-    await mintNFT(contract, userAddress, mintAmount);
-  });
-}
+    const userAddress = await connectToMetamask();
+    if (!userAddress) return;
+  
+    await changeNetwork();
+  
+    const web3 = new Web3(window.ethereum); // Använd window.ethereum istället för window.web3.currentProvider
+    const contract = createContractInstance(web3);
+  
+    updateTotalSupply(() => {
+      // Callback-funktionen kommer att köras när updateTotalSupply är klar.
+    });
+  
+    await updatePrice(contract, userAddress);
+  
+    document.getElementById('connectButton').textContent = 'CONNECTED';
+    document.getElementById('connectButton').disabled = true;
+  
+    document.getElementById('mintBtn').addEventListener('click', async () => {
+      const mintAmount = parseInt(document.getElementById('rangeValue').textContent);
+      await mintNFT(contract, userAddress, mintAmount);
+    });
+  }
 
 window.addEventListener('DOMContentLoaded', async () => {
   if (typeof window.ethereum === 'undefined') {
