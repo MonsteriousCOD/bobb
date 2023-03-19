@@ -35,7 +35,7 @@ async function main() {
   const maxVikings = 10000;
 
 function createContractInstance(web3) {
-	const contractInstance = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
+	const contractInstance = new web3.eth.Contract(abi, CONTRACT_ADDRESS);
 	return contractInstance;
   }
   
