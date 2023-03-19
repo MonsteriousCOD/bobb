@@ -52,7 +52,7 @@ function updateTotalSupply(contract, callback) {
 async function updatePrice(web3, contract, userAddress) {
   const priceInWei = await contract.methods.publicPrice().call({ from: userAddress });
   const priceInEth = web3.utils.fromWei(priceInWei, 'ether');
-  document.getElementById('price').textContent = `Price: ${priceInEth} ETH`;
+  document.getElementById('rangeValue').textContent = `Price: ${priceInEth} ETH`;
 }
 
 async function mintNFT(contract, userAddress, mintAmount) {
