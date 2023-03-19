@@ -683,7 +683,7 @@ function createContractInstance(web3) {
   return contract;
 }
 
-function updateTotalSupply(callback) {
+function updateTotalSupply(contract, callback) {
     contract.methods.totalSupply().call().then((result) => {
         document.getElementById("supply").innerText = result + " / 10000";
         callback && callback(result);
