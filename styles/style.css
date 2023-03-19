@@ -1,0 +1,671 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost&family=Press+Start+2P&display=swap");
+
+.twitter {
+  background-image: url("../assets/sprites/Twitter.png");
+}
+.twitter:hover {
+  background-image: url("../assets/sprites/TwitterActive.png");
+}
+.opensea {
+  background-image: url("../assets/sprites/Opensea.png");
+}
+.opensea:hover {
+  background-image: url("../assets/sprites/OpenseaActive.png");
+}
+.gitbook {
+  background-image: url("../assets/sprites/Gitbook.png");
+}
+.gitbook:hover {
+  background-image: url("../assets/sprites/GitbookActive.png");
+}
+.discord {
+  background-image: url("../assets/sprites/Discord.png");
+}
+.discord:hover {
+  background-image: url("../assets/sprites/DiscordActive.png");
+}
+.solo{
+  margin-left: 60px;
+}
+.inactive{
+  display: none;
+}
+.socialButton-container {
+  margin-top: 0px;
+  display: flex;
+  width: auto;
+  align-content: center;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.socialContainerInner{
+  display:flex;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  z-index: 999;
+}
+.socialButton{
+  width: 60px;
+  height:60px;
+  min-height: 60px;
+  min-width: 60px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+html {
+  font-size: 10px;
+  line-height: initial;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: black;
+  margin: 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2rem;
+  color: white;
+  letter-spacing: 0.4px;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  margin-top: 60px;
+}
+
+div {
+  font-family: "Bebas Neue", cursive;
+}
+
+p {
+  font-size: 2rem;
+}
+
+.footer {
+  margin-top: auto;
+  border-top: 1px solid white;
+  padding-top: 2rem;
+}
+
+.footer-nav,
+.footer-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.footer-social {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.banner {
+  overflow: hidden;
+  height: 400px;
+}
+
+.banner img {
+  vertical-align: bottom;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.floor-banner {
+  overflow: hidden;
+}
+
+.floor-banner img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.info {
+  padding-bottom: 3rem;
+  border-bottom: 1px solid grey;
+}
+
+.contract {
+  margin-bottom: 3rem;
+}
+
+.contract-links {
+  margin-top: 1rem;
+}
+
+.contract-links img {
+  max-width: 250px;
+  width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  z-index: 999;
+  height: 64px;
+  line-height: 64px;
+  background-color: #101010;
+}
+
+
+.nav-wrapper {
+  background-color: #101010;
+  border-bottom: 1px solid 101010;
+}
+
+.headerImage {
+  height: auto;
+  width: 100%;
+}
+
+.link {
+  font-size: 2.2rem;
+  color: white;
+}
+
+.link.active {
+  color: gray;
+}
+
+.link:hover {
+  color: #40615c;
+}
+
+.social {
+  margin-right: 0;
+  display: flex;
+}
+
+.social-link {
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 18px 10px 0 0;
+}
+
+.main-banner-container {
+  margin: 0;
+  padding: 0;
+  background-color: #101010;
+  height: 95vh;
+  position: relative;
+}
+
+.main-banner {
+  max-zoom: 1;
+  min-zoom: 1;
+  display: block;
+  position: absolute;
+  overflow-x: hidden;
+  overflow: hidden;
+  justify-content: end;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flag {
+  background-image: url("../assets/sprites/FlagWideRed.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  min-height: 300px;
+}
+
+.long {
+  background-image: url("../assets/sprites/FlagWideLongBlack.png");
+  min-height: 560px;
+}
+
+.distancer180{
+  min-height: 180px;
+}
+.distancer8{
+  min-height: 8px;
+}
+.distancer17{
+  min-height: 17px;
+}
+.distancer70{
+  min-height: 70px;
+}
+.distancer100 {
+  min-height: 100px;
+}
+.distancer10 {
+  min-height: 10px;
+}
+.distancer1 {
+  min-height: 1px;
+}
+
+.flagText {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  align-content: center;
+  width: 80%;
+  position: relative;
+  padding-top: 6%;
+}
+.singlet-container {
+  padding-top: 50px;
+  display: block;
+  width: 450px;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.triplet-container {
+  padding-top: 0px;
+  display: flex;
+  width: 900px;
+  align-content: center;
+  position: relative;
+  overflow: hidden;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.topSpaced {
+  padding-top: 28px;
+}
+
+.triplet {
+  text-align: center;
+  width: 50%;
+  height: auto;
+}
+.triplet img {
+  width: 100%;
+}
+
+.mintButton {
+  background-image: url("../assets/sprites/mint.png");
+  width: 200px;
+  height: 100px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mintButton:hover {
+  background-image: url("../assets/sprites/mintHov.png");
+}
+.mint img {
+  width: 200px;
+  cursor: pointer;
+}
+
+.sider {
+  width: 25%;
+}
+.righty {
+  width: 25%;
+}
+.lefty img {
+  width: 50px;
+}
+
+.torch img {
+  width: 50px;
+}
+
+.last {
+  padding-top: 200px;
+}
+.smaller {
+  color: rgb(214, 214, 214);
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: "Jost", sans-serif;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  line-height: 18px;
+}
+.smallText{
+  font-size: 12px;
+}
+.smallFlex{
+  display:flex;
+  
+}
+
+.title{
+  margin-left: 90px;
+  width: 100px;
+  text-align: left;
+
+}
+.stoneVal{
+  width:300px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.connectButton {
+  color: rgb(214, 214, 214);
+  font-size: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: "Jost", sans-serif;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  line-height: 18px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.small {
+  color: rgb(214, 214, 214);
+  font-size: 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: "Jost", sans-serif;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  line-height: 18px;
+}
+
+.premintBox {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  align-content: center;
+  width: 50%;
+  position: relative;
+  padding-top: 20px;
+}
+
+.premintLink {
+  color: rgb(214, 214, 214);
+  font-size: 18px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: "Jost", sans-serif;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .main-banner {
+    max-zoom: 1;
+    min-zoom: 1;
+    display: block;
+    overflow-x: hidden;
+    overflow: hidden;
+    justify-content: end;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.rangeValue {
+  width: 100%;
+}
+
+.range .thumb {
+  display: none !important;
+}
+
+input[type="range"] {
+  height: 38px;
+  margin: 10px 0;
+  width: 340px;
+  border: 0px;
+  
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 340px;
+  height: 30px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: transparent;
+  border-radius: 5px;
+  border: 2px solid #e9843700;
+}
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #00000000;
+  height: 27px;
+  width: 15px;
+  border-radius: 5px;
+  background: #5f5f5f;
+  cursor: pointer;
+  margin-top: -1px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+input[type="range"]::-moz-range-track {
+  width: 340px;
+  height: 30px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 1px solid #000000;
+  height: 30px;
+  width: 15px;
+  border-radius: 5px;
+  background: #818181;
+  cursor: pointer;
+}
+input[type="range"]::-ms-track {
+  width: 340px;
+  height: 30px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: transparent;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000;
+}
+input[type="range"]::-ms-fill-upper {
+  background: transparent;
+  border: 1px solid #e03939;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000;
+}
+input[type="range"]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #ff3c3c;
+  border: 1px solid #000000;
+  height: 30px;
+  width: 15px;
+  border-radius: 5px;
+  background: #444444;
+  cursor: pointer;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: transparent;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: transparent;
+}
+
+.range {
+  background-color: #e0393900;
+  width: 380px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.range .rangeInput:-webkit-slider-thumb {
+  opacity: 0.5;
+}
+
+.range .rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 42px;
+  height: 42px;
+  background-image: url("../assets/sprites/thumb.png");
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.rangeQty {
+  margin-top: 45px;
+  background-color: #e0393900;
+  width: 380px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: "Jost", sans-serif;
+  font-family: "Press Start 2P", cursive;
+}
+
+.rangePricing {
+  margin-top: 30px;
+
+  background-color: #e0393900;
+  width: 380px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: "Jost", sans-serif ;
+  font-family: "Press Start 2P" , cursive;
+}
+
+
+.congratsContainer{
+  position: relative;
+  width: 390px;
+  height: 0px;
+  background-color: #131313;
+  z-index: 999;
+  left:50%;
+  margin-left: -195px;
+  top:360px;
+  visibility: hidden;
+}
+.congratsInner{
+  display:block;
+  position:relative;
+  width: 100%;
+  height:100px;
+  background-color: #131313;
+  text-align: center;
+  background-image: url("../assets/sprites/fireworks.gif");
+  background-size: cover;
+}
+.congratsTitle {
+  position: absolute;
+  color: rgb(214, 214, 214);
+  font-size: 12px;
+  margin-top: 12px;
+  margin-bottom: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  line-height: 20px;
+  width:100%;
+}
+
+.congratsText1 {
+  position: absolute;
+  color: rgb(214, 214, 214);
+  font-size: 10px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  line-height: 20px;
+  width:100%;
+}
+.congratsText2 {
+  position: absolute;
+  color: rgb(214, 214, 214);
+  font-size: 10px;
+  margin-top: 60px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  font-family: "Press Start 2P", cursive;
+  text-align: right;
+  line-height: 20px;
+  width:50%;
+  padding-right: 12px;
+}
+.battlefieldLinkBox{
+  position: absolute;
+  color: rgb(214, 214, 214);
+  font-size: 10px;
+  margin-top: 60px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  font-family: "Press Start 2P", cursive;
+  text-align: left;
+  line-height: 20px;
+  width:50%;
+  left:50%;
+}
+.battlefieldLink{
+
+}
