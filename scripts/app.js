@@ -30,7 +30,7 @@ async function main() {
 	  }
 	}
   }
-  const CONTRACT_ADDRESS = '0xfEC732A3FC01D5dBbe28B296963B8eFaf21E9B8b';
+  const contractAdress = '0xfEC732A3FC01D5dBbe28B296963B8eFaf21E9B8b';
   const maxVikings = 10000;
   
   function createContractInstance(web3, contractAddress, contractABI) {
