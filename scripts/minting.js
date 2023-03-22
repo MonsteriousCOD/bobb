@@ -878,7 +878,6 @@ const contractABI = [[
 ]]; // Your contract ABI array
 const contractAddress = "0xD78EC8D2126dD89949D06139Fa0d05807250D88d"; // Your contract address
 
-// MetaMask integration
 let web3;
 let contract;
 let userAddress;
@@ -895,9 +894,9 @@ window.addEventListener('load', async () => {
 
       document.getElementById('connectButton').addEventListener('click', connectMetaMask);
       document.getElementById('mintBtn').addEventListener('click', mintTokens);
-     
+
       // Update the mint slider value and price
-      document.getElementById('mintSlider').addEventListener('rangeInput', updateMintSlider);
+      document.getElementById('mintSlider').addEventListener('input', updateMintSlider);
 
       // Check the current network
       checkNetwork();
@@ -913,50 +912,61 @@ window.addEventListener('load', async () => {
   }
 });
 
-async function checkNetwork() {
-  const networkId = await web3.eth.net.getId();
-  // Update the network display element
-  document.getElementById("network").innerHTML = networkId == 1 ? "Ethereum Mainnet" : "Wrong Network";
-
-  // If the network is not Ethereum Mainnet (networkId 1), prompt to switch
-  if (networkId !== 1) {
-    await window.ethereum.request({
-      method: 'wallet_switchEthereumChain',
-      params: [{ chainId: '0x1' }],
-    });
-  }
-}
-
-
 async function connectMetaMask() {
-  await window.ethereum.request({ method: 'eth_requestAccounts' });
-  userAddress = await web3.eth.getAccounts();
-  userAddress = userAddress[0];
-}
-async function getTotalSupply() {
-	const totalSupply = await contract.methods.totalSupply().call();
-	return totalSupply;
+	try {
+	  await window.ethereum.request({ method: 'eth_requestAccounts' });
+	  userAddress = await web3.eth.getAccounts();
+	  userAddress = userAddress[0];
+	  checkNetwork();
+	} catch (error) {
+	  console.error('Error connecting MetaMask:', error);
+	}
   }
   
-async function mintTokens() {
-  const mintAmount = document.getElementById('mintSlider').value;
-  const price = await contract.methods.tokenPrice().call();
-  const totalCost = web3.utils.toBN(price).mul(web3.utils.toBN(mintAmount));
 
-
+async function checkNetwork() {
+	try {
+	  const networkId = await web3.eth.net.getId();
+	  if (networkId !== 1) {
+		await window.ethereum.request({
+		  method: 'wallet_switchEthereumChain',
+		  params: [{ chainId: '0x1' }],
+		});
+	  }
+	} catch (error) {
+	  console.error('Error checking network:', error);
+	}
+  }
   
+ 
+
+
+  async function mintTokens() {
+	try {
+	  const mintAmount = parseInt(document.getElementById('mintSlider').value);
+	  const price = await contract.methods.publicPrice().call();
+	  const totalCost = web3.utils.toBN(price).mul(web3.utils.toBN(mintAmount));
+	  const gasEstimate = await contract.methods.mintViking(mintAmount).estimateGas({ from: userAddress, value: totalCost });
+  
+	  await contract.methods.mintViking(mintAmount).send({ from: userAddress, value: totalCost, gas: gasEstimate });
+	} catch (error) {
+	  console.error('Error minting tokens:', error);
+	}
+  }
+  
+  function updateMintSlider() {
+	const mintAmount = document.getElementById('mintSlider').value;
+	document.getElementById('mintAmount').innerHTML = mintAmount;
+  }
   async function updateInformation() {
 	try {
-	  const totalSupply = await getTotalSupply();
-	  const maxSupply = 10000; // You can also retrieve this from the smart contract if needed
+	  const totalSupply = await contract.methods.totalSupply().call();
+	  const maxSupply = 10000;
   
-	  // Update the supply display element
 	  document.getElementById("supply").innerHTML = `${totalSupply} / ${maxSupply}`;
+	} catch (error) {
+	  console.error('Error updating information:', error);
+	}
+  }
   
-
-
-  // Update the user's wallet address
-  userAddress = await web3.eth.getAccounts();
-  userAddress = userAddress[0];
-}
-
+  setInterval(updateInformation, 1000);
