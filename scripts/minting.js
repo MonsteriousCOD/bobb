@@ -974,5 +974,18 @@ async function checkNetwork() {
 	  console.error('Error updating information:', error);
 	}
   }
-  
+  function blinkConnectWallet() {
+      document.getElementById('connectButton').style.color = '#c40000';
+      setTimeout(alertFunc, 1000);
+    }
+
+    function alertFunc() {
+      document.getElementById('connectButton').style.color = '#ffffff';
+    }
+
+    function hexToBytes(hex) {
+      for (var bytes = [], c = 0; c < hex.length; c += 2)
+        bytes.push(parseInt(hex.substring(c, 2), 16));
+      return bytes;
+    }
   
