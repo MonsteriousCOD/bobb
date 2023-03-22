@@ -878,7 +878,6 @@ const contractABI = [[
 ]]; // Your contract ABI array
 const contractAddress = "0xD78EC8D2126dD89949D06139Fa0d05807250D88d"; // Your contract address
 
-// MetaMask integration
 let web3;
 let contract;
 let userAddress;
@@ -897,7 +896,7 @@ window.addEventListener('load', async () => {
       document.getElementById('mintBtn').addEventListener('click', mintTokens);
      
       // Update the mint slider value and price
-      document.getElementById('mintSlider').addEventListener('rangeInput', updateMintSlider);
+      document.getElementById('mintSlider').addEventListener('input', updateMintSlider);
 
       // Check the current network
       checkNetwork();
@@ -938,6 +937,16 @@ async function mintTokens() {
   const price = await contract.methods.tokenPrice().call();
   const totalCost = web3.utils.toBN(price).mul(web3.utils.toBN(mintAmount));
 
+  await contract.methods.mintTokens(mintAmount).send({
+    from: userAddress,
+    value: totalCost,
+  });
+}
+
+async function updateInformation() {
+  // Update the supply display element
+  const totalSupply = await contract.methods.totalSupply().call();
+  const maxSupply = await contract.methods.MAX_SUPPLY().call();
   document.getElementById("supply").innerHTML = `${totalSupply} / ${maxSupply}`;
 
   // Update the pool display element
@@ -951,3 +960,7 @@ async function mintTokens() {
   userAddress = userAddress[0];
 }
 
+function updateMintSlider() {
+  const mintAmount = document.getElementById('mintSlider').value;
+  document.getElementById('mintAmount').innerHTML = mintAmount;
+}
