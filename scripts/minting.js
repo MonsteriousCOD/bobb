@@ -878,6 +878,7 @@ const contractABI = [[
 ]]; // Your contract ABI array
 const contractAddress = "0xD78EC8D2126dD89949D06139Fa0d05807250D88d"; // Your contract address
 
+// MetaMask integration
 let web3;
 let contract;
 let userAddress;
@@ -896,7 +897,7 @@ window.addEventListener('load', async () => {
       document.getElementById('mintBtn').addEventListener('click', mintTokens);
      
       // Update the mint slider value and price
-      document.getElementById('mintSlider').addEventListener('input', updateMintSlider);
+      document.getElementById('mintSlider').addEventListener('rangeInput', updateMintSlider);
 
       // Check the current network
       checkNetwork();
@@ -926,41 +927,36 @@ async function checkNetwork() {
   }
 }
 
+
 async function connectMetaMask() {
   await window.ethereum.request({ method: 'eth_requestAccounts' });
   userAddress = await web3.eth.getAccounts();
   userAddress = userAddress[0];
 }
-
+async function getTotalSupply() {
+	const totalSupply = await contract.methods.totalSupply().call();
+	return totalSupply;
+  }
+  
 async function mintTokens() {
   const mintAmount = document.getElementById('mintSlider').value;
   const price = await contract.methods.tokenPrice().call();
   const totalCost = web3.utils.toBN(price).mul(web3.utils.toBN(mintAmount));
 
-  await contract.methods.mintTokens(mintAmount).send({
-    from: userAddress,
-    value: totalCost,
-  });
-}
 
-async function updateInformation() {
-  // Update the supply display element
-  const totalSupply = await contract.methods.totalSupply().call();
-  const maxSupply = await contract.methods.MAX_SUPPLY().call();
-  document.getElementById("supply").innerHTML = `${totalSupply} / ${maxSupply}`;
+  
+  async function updateInformation() {
+	try {
+	  const totalSupply = await getTotalSupply();
+	  const maxSupply = 10000; // You can also retrieve this from the smart contract if needed
+  
+	  // Update the supply display element
+	  document.getElementById("supply").innerHTML = `${totalSupply} / ${maxSupply}`;
+  
 
-  // Update the pool display element
-  // Replace this with the actual pool balance retrieval from your smart contract
-  const poolBalance = await web3.eth.getBalance(contractAddress);
-  const poolBalanceInEth = web3.utils.fromWei(poolBalance, "ether");
-  document.getElementById("pod").innerHTML = `${parseFloat(poolBalanceInEth).toFixed(4)} ETH`;
 
   // Update the user's wallet address
   userAddress = await web3.eth.getAccounts();
   userAddress = userAddress[0];
 }
 
-function updateMintSlider() {
-  const mintAmount = document.getElementById('mintSlider').value;
-  document.getElementById('mintAmount').innerHTML = mintAmount;
-}
