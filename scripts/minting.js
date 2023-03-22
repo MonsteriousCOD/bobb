@@ -875,7 +875,7 @@ const contractABI = [[
 		"stateMutability": "view",
 		"type": "function"
 	}
-]]; // Your contract ABI array
+]; // Your contract ABI array
 const contractAddress = "0xD78EC8D2126dD89949D06139Fa0d05807250D88d"; // Your contract address
 
 let web3;
