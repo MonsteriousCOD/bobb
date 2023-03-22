@@ -1,5 +1,5 @@
 // Replace these with your own contract ABI and address
-const contractABI = [[
+const contractABI = [
 	{
 		"inputs": [
 			{
