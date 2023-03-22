@@ -876,11 +876,13 @@ const contractABI = [
 		"type": "function"
 	}
 ]; // Your contract ABI array
+
 const contractAddress = "0xD78EC8D2126dD89949D06139Fa0d05807250D88d"; // Your contract address
 
 let web3;
 let contract;
 let userAddress;
+let tokenPrice = 0.01
 
 window.addEventListener('load', async () => {
   if (window.ethereum) {
@@ -895,14 +897,18 @@ window.addEventListener('load', async () => {
       document.getElementById('connectButton').addEventListener('click', connectMetaMask);
       document.getElementById('mintBtn').addEventListener('click', mintTokens);
 
-      // Update the mint slider value and price
-      document.getElementById('mintSlider').addEventListener('rangeInput', updateMintSlider);
-
       // Check the current network
       checkNetwork();
 
       // Update the supply and other information periodically
       setInterval(updateInformation, 1000);
+
+      // Update the mint slider value and price
+      let mintSlider = document.getElementById('mintSlider');
+      mintSlider.addEventListener('input', function (e) {
+        document.getElementById('rangePrice').innerText = ((Math.round(mintSlider.value * tokenPrice * 10000) / 10000).toString() + " ETH");
+        document.getElementById('rangeValue').innerText = (mintSlider.value).toString();
+      });
 
     } catch (error) {
       console.error("Error: ", error);
@@ -969,4 +975,4 @@ async function checkNetwork() {
 	}
   }
   
-  setInterval(updateInformation, 1000);
+  
