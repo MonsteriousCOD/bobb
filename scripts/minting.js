@@ -896,7 +896,7 @@ window.addEventListener('load', async () => {
       document.getElementById('mintBtn').addEventListener('click', mintTokens);
 
       // Update the mint slider value and price
-      document.getElementById('mintSlider').addEventListener('input', updateMintSlider);
+      document.getElementById('mintSlider').addEventListener('rangeInput', updateMintSlider);
 
       // Check the current network
       checkNetwork();
