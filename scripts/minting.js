@@ -960,7 +960,7 @@ async function checkNetwork() {
   }
   async function updateInformation() {
 	try {
-	  const totalSupply = await contract.methods.totalMinted().call();
+	  const totalSupply = await contract.methods.totalSupply().call();
 	  const maxSupply = 10000;
   
 	  document.getElementById("supply").innerHTML = `${totalSupply} / ${maxSupply}`;
