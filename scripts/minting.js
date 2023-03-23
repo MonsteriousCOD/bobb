@@ -882,7 +882,7 @@ const contractAddress = "0xD78EC8D2126dD89949D06139Fa0d05807250D88d"; // Your co
 let web3;
 let contract;
 let userAddress;
-let tokenPrice = 0.001
+let tokenPrice = 0.005
 
 window.addEventListener('load', async () => {
   if (window.ethereum) {
